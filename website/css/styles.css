@@ -1,0 +1,138 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: #121212; /* Dark black-gray */
+    color: #ffffff; /* White text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+/* Neumorphic Container */
+.container {
+    background: #1E1E1E; /* Slightly lighter black */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: inset 5px 5px 10px #0D0D0D, inset -5px -5px 10px #2A2A2A;
+    text-align: center;
+    margin-top: 80px;
+    width: 80%;
+}
+
+/* Neumorphic Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #121212;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    box-shadow: 4px 4px 10px #0D0D0D, -4px -4px 10px #2A2A2A;
+}
+
+.nav-btn {
+    margin: 0 15px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: #1E1E1E;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 5px 5px 10px #0D0D0D, -5px -5px 10px #2A2A2A;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-btn:hover {
+    background: #D32F2F;
+    color: #ffffff;
+    box-shadow: inset 5px 5px 10px #911A1A, inset -5px -5px 10px #FF5252;
+}
+
+/* Register & Verify Section */
+.section-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Neumorphic Sections */
+.section {
+    width: 45%;
+    background: #1E1E1E;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: inset 5px 5px 10px #0D0D0D, inset -5px -5px 10px #2A2A2A;
+    text-align: center;
+}
+
+/* Attendance Section (Neumorphic & Centered) */
+.attendance-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.attendance-container {
+    background: #1E1E1E;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: inset 5px 5px 10px #0D0D0D, inset -5px -5px 10px #2A2A2A;
+    text-align: center;
+    width: 50%;
+}
+
+/* Webcam Video */
+video {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 8px 8px 16px #0D0D0D, -8px -8px 16px #2A2A2A;
+    margin-top: 10px;
+}
+
+/* Hide Video Initially */
+.hidden {
+    display: none;
+}
+
+/* Neumorphic Buttons */
+.btn {
+    display: inline-block;
+    background: #D32F2F;
+    border: none;
+    padding: 12px 25px;
+    margin-top: 10px;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 6px 6px 6px #911A1A, -6px -6px 6px #FF5252;
+}
+
+.btn:hover {
+    background: #FF5252;
+    box-shadow: inset 5px 5px 10px #911A1A, inset -5px -5px 10px #FF5252;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .section {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+    
+    .attendance-container {
+        width: 80%;
+    }
+}

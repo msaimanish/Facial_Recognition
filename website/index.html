@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="attendance.html" class="nav-btn">Attendance</a>
+    </nav>
+
+    <div class="container">
+        <h1>Face Recognition System</h1>
+        
+        <!-- Register & Verify Section -->
+        <div class="section-container">
+            <!-- Left Section: Register -->
+            <div class="section">
+                <h2>Register</h2>
+                <button class="btn" onclick="toggleCamera('registerCam')">Start Register</button>
+                <video id="registerCam" autoplay playsinline class="hidden"></video>
+            </div>
+            
+            <!-- Right Section: Verify -->
+            <div class="section">
+                <h2>Verify</h2>
+                <button class="btn" onclick="toggleCamera('verifyCam')">Start Verify</button>
+                <video id="verifyCam" autoplay playsinline class="hidden"></video>
+            </div>
+        </div>
+
+        <!-- Attendance Button (Perfectly Centered Below) -->
+        <div class="attendance-wrapper">
+            <div class="attendance-container">
+                <h2>Attendance</h2>
+                <button class="btn" onclick="toggleCamera('attendanceCam')">Start Attendance</button>
+                <video id="attendanceCam" autoplay playsinline class="hidden"></video>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
