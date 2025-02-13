@@ -5,7 +5,7 @@ from database import get_all_faces
 from datetime import datetime
 import pandas as pd
 
-# 🟢 Load face embeddings from database
+# Load face embeddings from database
 faces = get_all_faces()
 
 known_embeddings = []
@@ -25,29 +25,29 @@ if not known_embeddings:
 
 known_embeddings = np.array(known_embeddings)
 
-print("✅ Loaded Embeddings, Shape:", known_embeddings.shape)
+print("Loaded Embeddings, Shape:", known_embeddings.shape)
 
-# 🟢 Start Webcam
+# Start Webcam
 cam = cv2.VideoCapture(0)
 attendance = {}
 
 while True:
     ret, frame = cam.read()
     if not ret:
-        print("❌ Error capturing frame, skipping...")
+        print("Error capturing frame, skipping...")
         continue
 
-    # 🟢 Extract Embedding
+    # Extract Embedding
     image_path = "temp.jpg"
     cv2.imwrite(image_path, frame)
     embedding = extract_embedding(image_path)
 
     if embedding is None or embedding.shape[0] != 512:
-        print("❌ Error extracting embedding, skipping frame.")
+        print("Error extracting embedding, skipping frame.")
         cv2.putText(frame, "Face Not Recognized", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 
                     1, (0, 0, 255), 2, cv2.LINE_AA)
     else:
-        # 🟢 Compare with Stored Embeddings (Cosine Similarity)
+        # Compare with Stored Embeddings (Cosine Similarity)
         similarities = np.dot(known_embeddings, embedding) / (
             np.linalg.norm(known_embeddings, axis=1) * np.linalg.norm(embedding)
         )
@@ -71,11 +71,11 @@ while True:
 
             cv2.putText(frame, f"{name} ({confidence:.2f})", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 
                         1, (0, 255, 0), 2, cv2.LINE_AA)
-            print(f"✅ Recognized: {name} (Confidence: {confidence:.2f})")
+            print(f"Recognized: {name} (Confidence: {confidence:.2f})")
         else:
             cv2.putText(frame, "Face Not Recognized", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 
                         1, (0, 0, 255), 2, cv2.LINE_AA)
-            print("❌ Face not recognized.")
+            print("Face not recognized.")
 
     cv2.imshow("Face Recognition", frame)
 
@@ -85,7 +85,7 @@ while True:
 cam.release()
 cv2.destroyAllWindows()
 
-# 🟢 Save Attendance
+# Save Attendance
 df = pd.DataFrame.from_dict(attendance, orient="index")
 df.to_csv("attendance.csv", index=False)
-print("✅ Attendance saved to attendance.csv")
+print("Attendance saved to attendance.csv")

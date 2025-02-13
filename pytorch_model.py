@@ -35,21 +35,21 @@ def extract_embedding(image_path):
         embedding = embedding.numpy().flatten()  # Convert to NumPy array
 
         if embedding.shape[0] != 512:
-            print(f"❌ Invalid embedding shape for {image_path}: {embedding.shape}")
+            print(f"Invalid embedding shape for {image_path}: {embedding.shape}")
             return None
         
         return embedding
 
     except Exception as e:
-        print(f"❌ Error processing {image_path}: {e}")
+        print(f"Error processing {image_path}: {e}")
         return None
 
 # Test the function
 if __name__ == "__main__":
-    image_path = "dataset/203_Sai Manish/Sai Manish_2.jpg"  # Replace with an actual image path
+    image_path = "dataset/2024076335_Sai Manish reddy/2.jpg"  # Replace with an actual image pathdataset/2024076335_Sai Manish reddy
     embedding = extract_embedding(image_path)
 
     if embedding is not None:
-        print(f"✅ Extracted embedding shape: {embedding.shape}")
+        print(f"Extracted embedding shape: {embedding.shape}")
     else:
-        print("❌ Failed to extract embedding.")
+        print("Failed to extract embedding.")

@@ -1,7 +1,7 @@
 import sqlite3
 import numpy as np
 
-# 🟢 Connect & Create Table
+# Connect & Create Table
 def init_db():
     conn = sqlite3.connect("face_recognition.db")
     cursor = conn.cursor()
@@ -14,9 +14,9 @@ def init_db():
     """)
     conn.commit()
     conn.close()
-    print("✅ Database and table initialized!")
+    print("Database and table initialized!")
 
-# 🟢 Insert or Update Face Data
+# Insert or Update Face Data
 def insert_face(student_id, name, embedding):
     conn = sqlite3.connect("face_recognition.db")
     cursor = conn.cursor()
@@ -31,15 +31,15 @@ def insert_face(student_id, name, embedding):
         """, (student_id, name, embedding_bytes))
 
         conn.commit()
-        print(f"✅ Face data saved/updated for {name} (ID: {student_id})")
+        print(f"Face data saved/updated for {name} (ID: {student_id})")
 
     except sqlite3.Error as e:
-        print(f"❌ Database Error: {e}")
+        print(f"Database Error: {e}")
 
     finally:
         conn.close()
 
-# 🟢 Retrieve All Faces
+# Retrieve All Faces
 def get_all_faces():
     conn = sqlite3.connect("face_recognition.db")
     cursor = conn.cursor()
@@ -48,8 +48,8 @@ def get_all_faces():
     conn.close()
     return faces
 
-# 🟢 Initialize Database
+# Initialize Database
 if __name__ == "__main__":
     init_db()
     faces = get_all_faces()
-    print(f"🔍 Total Records in DB: {len(faces)}")
+    print(f"Total Records in DB: {len(faces)}")
